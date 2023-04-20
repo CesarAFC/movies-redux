@@ -1,7 +1,8 @@
-import { READ_ALL_DATA } from "../types";
+import { READ_ALL_DATA, READ_DETAIL_DATA } from "../types";
 
 const initialState = {
-    db: []
+    db: [],
+    details: {},
 };
 
 export default function moviesReducer ( state = initialState, action) {
@@ -10,6 +11,11 @@ export default function moviesReducer ( state = initialState, action) {
             return {
               ...state,
               db: action.payload,
+            };
+        case READ_DETAIL_DATA:
+            return {
+              ...state,
+              details: action.payload,
             };
     
         default:

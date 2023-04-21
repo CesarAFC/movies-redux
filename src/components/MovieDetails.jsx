@@ -7,6 +7,7 @@ import { readDetails } from '../actions';
 import { API_KEY } from '../keys';
 import { getMovieProvider, getMoviesDetails } from '../moviesAPI';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import MovieProviders from './MovieProviders';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -21,17 +22,26 @@ const MovieDetails = () => {
     //   queryFn: () => getMoviesDetails(id),
     // });
 
-    const [detailsMovies, detailsMoviesProviders] = useQueries([
+    const results = useQueries([
       { queryKey: ["detailsMovies"], queryFn: () => getMoviesDetails(id) },
       { queryKey: ["detailsMoviesProviders"], queryFn: () => getMovieProvider(id) },
     ])
+
+    const [detailsMovies, detailsMoviesProviders] = results; 
     const {isLoading, data: details, isError, error} = detailsMovies; 
     const {data: providers} = detailsMoviesProviders; 
-    console.log(providers)
 
     const handleBack = () => {
       navigate(-1)
     }
+
+    if( isLoading) return <div>Loading...</div>
+    else if( isError ) return <div>Error: {error.message}</div>
+
+    //Validate if all the promises are fulfilled
+    const moviesListas = results.some(query => query.isLoading);
+
+    const providersArrary = (!moviesListas || providers) ? providers?.results.US?.buy : [];
 
     // const getMoviesDetails = () => {
     //   const options = {
@@ -50,9 +60,6 @@ const MovieDetails = () => {
     // useEffect(() => {
     //     getMoviesDetails();
     // }, []);
-
-    if( isLoading) return <div>Loading...</div>
-    else if( isError ) return <div>Error: {error.message}</div>
 
   return (
     <Container>
@@ -86,7 +93,7 @@ const MovieDetails = () => {
           />
         )}
         <Box>
-          <Typography variant="body1">{details.overview}</Typography>
+          <Typography variant="body1" sx={{pb: 2}}>{details.overview}</Typography>
           <Stack direction="row" spacing={1}>
             {details.genres.map((genre) => (
               <Chip key={genre.id} label={genre.name} />
@@ -94,6 +101,12 @@ const MovieDetails = () => {
           </Stack>
         </Box>
       </Box>
+      <Box>
+        {/* {providersArrary.map( (elem) => (
+          <Typography>{elem.provider_name}</Typography>
+        ) )} */}
+      </Box>
+      <MovieProviders providersArrary={providersArrary} />
     </Container>
   );
 }

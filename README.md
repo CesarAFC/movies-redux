@@ -23,36 +23,37 @@ To use the Trending Movies App, simply navigate to the application's URL in your
 To install the application locally, follow these steps:
 
 Clone the repository: 
-...
+```
 git clone https://github.com/your-username/trending-movies-app.git
-...
+```
 
 Navigate to the project directory: 
-...
+```
 cd trending-movies-app
-... 
+``` 
 Install dependencies: 
-...
+```
 pnpm install
-...
+```
 Start the development server:
-... 
+```
 pnpm start
-...
+```
 
 ## Contributing
 Contributions to the Trending Movies App are welcome! To contribute, follow these steps:
 
 1. Fork the repository
 2. Create a new branch for your feature: 
-...
+```
 git checkout -b my-feature
-...
+```
 3. Make your changes and commit them: 
-...
+```
 git commit -am 'Add new feature'
-...
+```
 4. Push your changes to your fork: git push origin my-feature
 5. Create a new pull request from your fork to the original repository
+
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.

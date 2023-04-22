@@ -19,7 +19,7 @@ export default function MovieCard({movie}) {
     <Card sx={{ maxWidth: 345, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}} >
       <CardMedia
         sx={{ height: 140 }}
-        image={`https://image.tmdb.org/t/p/w200/${movie.backdrop_path}`}
+        image={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
         title={movie.title}
       />
         <CardContent>

@@ -24,7 +24,7 @@ To install the application locally, follow these steps:
 
 Clone the repository: 
 ```
-git clone https://github.com/your-username/trending-movies-app.git
+git clone https://github.com/CesarAFC/movies-redux
 ```
 
 Navigate to the project directory: 

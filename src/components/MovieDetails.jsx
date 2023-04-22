@@ -63,10 +63,12 @@ const MovieDetails = () => {
 
   return (
     <Container>
-      <Typography variant="h2">MovieDetails</Typography>
-      <IconButton color="primary" onClick={handleBack}>
+      <Box sx={{display: 'flex', gap: 1}}>
+      <IconButton  onClick={handleBack} sx={{ color: '#000', width: 55}} >
         <ArrowBackIcon />
       </IconButton>
+      <Typography variant="h3" >Details</Typography>
+      </Box>
       <Typography variant="h4">{details.title}</Typography>
       <Typography sx={{ pb: 2 }}>{details.tagline}</Typography>
       <Stack direction="row" spacing={1}>

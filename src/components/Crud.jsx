@@ -6,6 +6,7 @@ import MovieCard from './MoviesCard';
 // import { API_KEY } from '../keys';
 import { useQuery } from 'react-query';
 import { getInitialMovies } from '../moviesAPI';
+import MovieCardSkeleton from './MovieCardSkeleton';
 
 const URL = 'https://api.themoviedb.org/3/trending/movie/week';
 
@@ -20,7 +21,8 @@ const Crud = () => {
     select: (movies) => (movies.results.slice(0,12))
   });
 
-  if( isLoading) return <div>Loading...</div>
+  if( isLoading) return <MovieCardSkeleton/>
+  // if( true) return <MovieCardSkeleton/>
   else if( isError ) return <div>Error: {error.message}</div>
   
 //   function getInitialMovies() {
@@ -44,7 +46,7 @@ const Crud = () => {
   
   return (
     <Container>
-      <Typography variant='h3' sx={{textAlign: 'center'}} pb={2}>Trending movies Movies</Typography>
+      <Typography variant='h3' sx={{textAlign: 'center'}} pb={2}>Trending Movies</Typography>
       <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}}>
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />

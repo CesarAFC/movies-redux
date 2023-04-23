@@ -7,6 +7,7 @@ import MovieDetails from './components/MovieDetails';
 import SearchBar from './components/SearchBar';
 import { Container } from '@mui/material';
 import { SearchResults } from './components/SearchResults';
+import TopRatedList from './pages/TopRatedList';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Crud />} />
             <Route path="/movies/:id" element={<MovieDetails />} />
             <Route path="/search" element={<SearchResults />} />
+            <Route path="/top-rated" element={<TopRatedList />} />
             <Route path="*" element={<h1>404</h1>} />
           </Routes>
         </Container>

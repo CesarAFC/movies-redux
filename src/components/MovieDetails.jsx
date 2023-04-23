@@ -1,6 +1,6 @@
-import { Box, Chip, Container, Divider, IconButton, Link, Stack, Typography } from '@mui/material';
-import { useEffect } from 'react'
-import { useQueries, useQuery } from 'react-query';
+import { Box, Chip, Container, Divider, IconButton, Stack, Typography } from '@mui/material';
+import { useEffect } from 'react';
+import { useQueries } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { readDetails } from '../actions';
@@ -8,6 +8,7 @@ import { API_KEY } from '../keys';
 import { getMovieProvider, getMoviesDetails } from '../moviesAPI';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MovieProviders from './MovieProviders';
+import Ratings from './Ratings';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -64,19 +65,27 @@ const MovieDetails = () => {
   return (
     <Container>
       <Box sx={{display: 'flex', gap: 1}}>
-      <IconButton  onClick={handleBack} sx={{ color: '#000', width: 55}} >
-        <ArrowBackIcon />
-      </IconButton>
-      <Typography variant="h3" >Details</Typography>
+        <IconButton  onClick={handleBack} sx={{ color: '#000', width: 40}} >
+          <ArrowBackIcon />
+        </IconButton>
+        <Typography variant="h4" >Details</Typography>
       </Box>
-      <Typography variant="h4">{details.title}</Typography>
-      <Typography sx={{ pb: 2 }}>{details.tagline}</Typography>
+
+      <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
+        <div>
+          <Typography variant="h2">{details.title}</Typography>
+          <Typography sx={{ pb: 2 }}>{details.tagline}</Typography>
+        </div>
+        <Ratings rate={details.vote_average} totalVotes={details.vote_count} />
+      </Box>
+
       <Stack direction="row" spacing={1}>
         <Typography variant="caption">
           {details.release_date.slice(0, 4)}
         </Typography>
         <Typography variant="caption">{`${details.runtime} mins`}</Typography>
       </Stack>
+
       <Box
         sx={{
           display: "flex",
@@ -95,18 +104,13 @@ const MovieDetails = () => {
           />
         )}
         <Box>
-          <Typography variant="body1" sx={{pb: 2}}>{details.overview}</Typography>
+          <Typography variant="body1" sx={{pb: 2}}>{details.overview ? details.overview : 'No overview provided' }</Typography>
           <Stack direction="row" spacing={1}>
             {details.genres.map((genre) => (
               <Chip key={genre.id} label={genre.name} />
             ))}
           </Stack>
         </Box>
-      </Box>
-      <Box>
-        {/* {providersArrary.map( (elem) => (
-          <Typography>{elem.provider_name}</Typography>
-        ) )} */}
       </Box>
       <MovieProviders providersArrary={providersArrary} />
     </Container>

@@ -28,3 +28,8 @@ export const searchMovie = (query) => {
   const URL = `${BASE_URL}search/movie?language=en-US&query=${query}&page=1&include_adult=false`;
   return fetch(URL, options).then((res) => res.json());
 }
+
+export const getTopRatedMovies = () => {
+  const URL = `${BASE_URL}movie/top_rated?language=en-US&page=1&region=us`
+  return fetch(URL, options).then((res) => res.json());
+}

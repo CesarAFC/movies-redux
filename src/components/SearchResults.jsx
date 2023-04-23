@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Box, CircularProgress, Container, Typography } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
@@ -39,7 +39,7 @@ export const SearchResults = ({}) => {
         select: (movieResults) => (movieResults.results.slice(0,12))
       });
 
-      if (isLoading) return <div>Loading...</div>;
+      if (isLoading) return <Container sx={{display: 'flex', justifyContent: 'center'}}><CircularProgress/></Container>  ;
       else if (isError) return <div>Error: {error.message}</div>;
 
   return (
@@ -47,6 +47,7 @@ export const SearchResults = ({}) => {
       { movieResults.length === 0 ? <Typography>Type your query...</Typography> : movieResults.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))} 
+
     </Container>
   );
 }

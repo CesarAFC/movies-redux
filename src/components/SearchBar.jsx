@@ -2,16 +2,15 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearQuery, readQuery } from '../actions';
 import { useNavigate } from 'react-router-dom';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import { Button } from '@mui/material';
+import AppMenu from './AppMenu';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -57,7 +56,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchBar() {
-  //const [query, setQuery] = useState('');
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { movieQuery } = state.movies;
@@ -65,7 +63,6 @@ export default function SearchBar() {
 
 
   const handleQueryChange = (e) => {
-    //setQuery(e.target.value);
     dispatch(readQuery(e.target.value));
   };
   const handleMoviesButton = () => {
@@ -90,15 +87,7 @@ export default function SearchBar() {
     >
       <AppBar position="static" sx={{ backgroundColor: "#2E3B55" }}>
         <Toolbar >
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <AppMenu />
           <Button variant="text" >
           <TheaterComedyIcon
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
@@ -116,7 +105,7 @@ export default function SearchBar() {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                color: "inherit",
+                color: "#fff",
                 textDecoration: "none",
               }}
             >

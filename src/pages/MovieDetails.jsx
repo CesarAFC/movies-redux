@@ -7,8 +7,8 @@ import { readDetails } from '../actions';
 import { API_KEY } from '../keys';
 import { getMovieProvider, getMoviesDetails } from '../moviesAPI';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import MovieProviders from './MovieProviders';
-import Ratings from './Ratings';
+import MovieProviders from '../components/MovieProviders';
+import Ratings from '../components/Ratings';
 
 const MovieDetails = () => {
     const { id } = useParams();

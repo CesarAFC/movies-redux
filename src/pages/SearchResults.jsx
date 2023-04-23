@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import useDebounce from '../hooks/useDebounce';
 import { searchMovie } from '../moviesAPI';
-import MovieCard from './MoviesCard';
+import MovieCard from '../components/MoviesCard';
 
 export const SearchResults = ({}) => {
     const state = useSelector((state) => state);

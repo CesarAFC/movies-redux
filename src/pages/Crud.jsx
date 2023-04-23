@@ -1,12 +1,12 @@
 // import { useSelector, useDispatch } from 'react-redux';
-import { Container, Typography } from '@mui/material';
 // import { useEffect } from 'react';
-import MovieCard from './MoviesCard';
 // import { readAllData } from '../actions';
 // import { API_KEY } from '../keys';
+import { Container, Typography } from '@mui/material';
 import { useQuery } from 'react-query';
 import { getInitialMovies } from '../moviesAPI';
-import MovieCardSkeleton from './MovieCardSkeleton';
+import MovieCardSkeleton from '../components/MovieCardSkeleton';
+import MovieCard from '../components/MoviesCard';
 
 const URL = 'https://api.themoviedb.org/3/trending/movie/week';
 

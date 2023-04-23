@@ -1,5 +1,7 @@
 # Trending Movies App
-The Trending Movies App is a web application that allows users to browse and discover popular and trending movies. Users can view movie details, ratings, reviews. The application is built using React and utilizes data from a third-party API.
+The Trending Movies App is a web application that allows users to browse and discover popular and trending movies. Users can view movie details, ratings, reviews. The application is built using React and utilizes data from a third-party API. The application is built using React, React Query, Redux, ErrorBoundary, and MaterialUI. React is a popular front-end framework that makes it easy to build complex UI components. React Query is a library that provides an efficient way to fetch data from APIs and cache the results for better performance. Redux is a state management library that helps manage the state of the application across various components. ErrorBoundary is a component provided by React that helps handle errors and prevents the app from crashing.
+MaterialUI is a popular UI component library that provides pre-built components like buttons, forms, and tables that follow Material Design guidelines. This makes it easy to create a visually appealing and responsive interface.
+By using React, React Query, Redux, ErrorBoundary, and MaterialUI, we aim to create a high-quality application that is both performant and visually appealing.
 
 ## Features
 * Browse trending and popular movies
@@ -9,11 +11,6 @@ The Trending Movies App is a web application that allows users to browse and dis
 
 ## Usage
 To use the Trending Movies App, simply navigate to the application's URL in your web browser. From there, you can browse and search for movies, view movie details and trailers, and create an account to save movies to your watchlist.
-
-## Project description 
-This project is a web application that allows users to search and browse for movies. The application is built using React, React Query, Redux, ErrorBoundary, and MaterialUI. React is a popular front-end framework that makes it easy to build complex UI components. React Query is a library that provides an efficient way to fetch data from APIs and cache the results for better performance. Redux is a state management library that helps manage the state of the application across various components. ErrorBoundary is a component provided by React that helps handle errors and prevents the app from crashing.
-MaterialUI is a popular UI component library that provides pre-built components like buttons, forms, and tables that follow Material Design guidelines. This makes it easy to create a visually appealing and responsive interface.
-By using React, React Query, Redux, ErrorBoundary, and MaterialUI, we aim to create a high-quality application that is both performant and visually appealing.
 
 ## Technologies Used
 1. React | Vite

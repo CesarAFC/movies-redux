@@ -88,7 +88,7 @@ export default function SearchBar() {
       <AppBar position="static" sx={{ backgroundColor: "#2E3B55" }}>
         <Toolbar >
           <AppMenu />
-          <Button variant="text" >
+          <Button variant="text" onClick={handleMoviesButton}>
           <TheaterComedyIcon
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
           />
@@ -97,7 +97,6 @@ export default function SearchBar() {
               variant="h6"
               noWrap
               component="span"
-              onClick={handleMoviesButton}
               sx={{
                 flexGrow: 1,
                 display: { xs: "none", sm: "block" },

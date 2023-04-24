@@ -6,11 +6,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 import NoImage from './NoImage';
+import StarRating from './StarRating';
 
 //https://developers.themoviedb.org/3/configuration/get-api-configuration
 
 export default function MovieCard({movie}) {
-
   const navigate = useNavigate();
 
   const handleLearnMore = () => {
@@ -34,15 +34,12 @@ export default function MovieCard({movie}) {
       ) : (
         <NoImage />
       )}
-      {/* <CardMedia
-        sx={{ height: 140 }}
-        image={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-        title={movie.title}
-      /> */}
+
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {movie.title}
         </Typography>
+        <StarRating rate={movie.vote_average}/>
         <Typography variant="body2" color="text.secondary">
           {movie.overview ? movie.overview : "No description provided"}
         </Typography>

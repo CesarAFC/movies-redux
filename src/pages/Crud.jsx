@@ -46,7 +46,7 @@ const Crud = () => {
   
   return (
     <Container>
-      <Typography variant='h3' sx={{textAlign: 'center'}} pb={2}>Trending Movies</Typography>
+      <Typography variant='h3' sx={{textAlign: 'center', fontWeight: 700}} pb={2}>Trending Movies</Typography>
       <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}}>
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />

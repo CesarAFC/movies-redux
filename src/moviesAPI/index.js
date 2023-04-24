@@ -30,6 +30,14 @@ export const searchMovie = (query) => {
 }
 
 export const getTopRatedMovies = () => {
-  const URL = `${BASE_URL}movie/top_rated?language=en-US&page=1&region=us`
+  const URL = `${BASE_URL}movie/top_rated?language=en-US&page=1&region=US`
+  return fetch(URL, options).then((res) => res.json());
+}
+export const getUpcomingMovies = () => {
+  const URL = `${BASE_URL}movie/upcoming?language=en-US&page=1&region=US`
+  return fetch(URL, options).then((res) => res.json());
+}
+export const getSimilarMovies = (id) => {
+  const URL = `${BASE_URL}movie/${id}/similar?language=en-US&page=1&region=US`;
   return fetch(URL, options).then((res) => res.json());
 }

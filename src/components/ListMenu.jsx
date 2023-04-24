@@ -16,6 +16,10 @@ export default function ListMenu({toggleDrawer}) {
         toggleDrawer(false);
         navigate('/top-rated');
     }
+    const handleUpcoming = () => {
+        toggleDrawer(false);
+        navigate('/upcoming');
+    }
   return (
     <Box sx={{ width: 300, bgcolor: 'background.paper' }}>
       <nav aria-label="main mailbox folders">
@@ -29,11 +33,11 @@ export default function ListMenu({toggleDrawer}) {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={handleUpcoming}>
               <ListItemIcon>
                 <MovieIcon />
               </ListItemIcon>
-              <ListItemText primary="Other" />
+              <ListItemText primary="Upcoming" />
             </ListItemButton>
           </ListItem>
         </List>

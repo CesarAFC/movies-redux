@@ -9,6 +9,7 @@ import { SearchResults } from './pages/SearchResults';
 import TopRatedList from './pages/TopRatedList';
 import Crud from './pages/Crud';
 import ErrorBoundary from './components/ErrorBoundary';
+import UpcomingMovies from './pages/UpcomingMovies';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
               <Route path="/movies/:id" element={<MovieDetails />} />
               <Route path="/search" element={<SearchResults />} />
               <Route path="/top-rated" element={<TopRatedList />} />
+              <Route path="/upcoming" element={<UpcomingMovies />} />
               <Route path="*" element={<h1>404</h1>} />
             </Routes>
           </Container>

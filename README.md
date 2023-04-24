@@ -12,6 +12,12 @@ By using React, React Query, Redux, ErrorBoundary, and MaterialUI, we aim to cre
 ## Usage
 To use the Trending Movies App, simply navigate to the application's URL in your web browser. From there, you can browse and search for movies, view movie details and trailers, and create an account to save movies to your watchlist.
 
+
+## TODO
+* Agregar skeleton para movie detail
+* Add similar movies API
+* Add upcoming 
+
 ## Technologies Used
 1. React | Vite
 2. Redux

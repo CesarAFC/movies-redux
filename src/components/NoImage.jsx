@@ -3,7 +3,7 @@ import { Container, Typography } from '@mui/material';
 
 const NoImage = () => {
     return (
-      <Container sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: 345, height: 120}}>
+      <Container sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: 345, height: 140}}>
         <ImageNotSupportedIcon/>
         <Typography variant='overline'>Image not available</Typography>
       </Container>

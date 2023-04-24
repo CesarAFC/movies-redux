@@ -1,4 +1,4 @@
-import { Box, Chip, Container, Divider, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Chip, CircularProgress, Container, IconButton, Stack, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useQueries } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,7 @@ import { getMovieProvider, getMoviesDetails } from '../moviesAPI';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MovieProviders from '../components/MovieProviders';
 import Ratings from '../components/Ratings';
+import SimilarMovies from '../components/SimilarMovies';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -24,8 +25,8 @@ const MovieDetails = () => {
     // });
 
     const results = useQueries([
-      { queryKey: ["detailsMovies"], queryFn: () => getMoviesDetails(id) },
-      { queryKey: ["detailsMoviesProviders"], queryFn: () => getMovieProvider(id) },
+      { queryKey: ["detailsMovies", id], queryFn: () => getMoviesDetails(id) },
+      { queryKey: ["detailsMoviesProviders", id], queryFn: () => getMovieProvider(id) },
     ])
 
     const [detailsMovies, detailsMoviesProviders] = results; 
@@ -36,7 +37,7 @@ const MovieDetails = () => {
       navigate(-1)
     }
 
-    if( isLoading) return <div>Loading...</div>
+    if( isLoading) return <Container sx={{display: 'flex', justifyContent: 'center'}}><CircularProgress/></Container>;
     else if( isError ) return <div>Error: {error.message}</div>
 
     //Validate if all the promises are fulfilled
@@ -89,7 +90,7 @@ const MovieDetails = () => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           alignItems: "center",
           gap: 3,
         }}
@@ -113,6 +114,7 @@ const MovieDetails = () => {
         </Box>
       </Box>
       <MovieProviders providersArrary={providersArrary} />
+      <SimilarMovies movieId={id} />
     </Container>
   );
 }

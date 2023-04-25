@@ -102,6 +102,7 @@ const MovieDetails = () => {
             src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
             width="200"
             height="300"
+            alt={details.title}
           />
         )}
         <Box>

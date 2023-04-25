@@ -10,6 +10,7 @@ import TopRatedList from './pages/TopRatedList';
 import Crud from './pages/Crud';
 import ErrorBoundary from './components/ErrorBoundary';
 import UpcomingMovies from './pages/UpcomingMovies';
+import FavoritesMovies from './pages/FavoritesMovies';
 
 const theme = createTheme({
   typography: {
@@ -37,8 +38,10 @@ function App() {
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/top-rated" element={<TopRatedList />} />
                 <Route path="/upcoming" element={<UpcomingMovies />} />
+                <Route path="/my-favorites" element={<FavoritesMovies />} />
                 <Route path="*" element={<h1>404</h1>} />
               </Routes>
+              {/*  */}
             </Container>
           </ErrorBoundary>
         </ThemeProvider>

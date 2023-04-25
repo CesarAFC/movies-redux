@@ -8,6 +8,8 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import GradeIcon from '@mui/icons-material/Grade';
 import MovieIcon from '@mui/icons-material/Movie';
+import MenuIcon from '@mui/icons-material/Menu';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useNavigate } from 'react-router-dom';
 
 export default function ListMenu({toggleDrawer}) {
@@ -20,8 +22,25 @@ export default function ListMenu({toggleDrawer}) {
         toggleDrawer(false);
         navigate('/upcoming');
     }
+    const handleFavorites = () => {
+        toggleDrawer(false);
+        navigate('/my-favorites');
+    }
   return (
     <Box sx={{ width: 300, bgcolor: 'background.paper' }}>
+      <nav aria-label="secondary mailbox folders">
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => toggleDrawer(false)}>
+              <ListItemIcon>
+                <MenuIcon />
+              </ListItemIcon>
+              <ListItemText primary="Movies" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </nav>
+      <Divider />
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem disablePadding>
@@ -45,9 +64,12 @@ export default function ListMenu({toggleDrawer}) {
       <Divider />
       <nav aria-label="secondary mailbox folders">
         <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary="Other" />
+        <ListItem disablePadding>
+            <ListItemButton onClick={handleFavorites}>
+              <ListItemIcon>
+                <FavoriteIcon />
+              </ListItemIcon>
+              <ListItemText primary="Favorites" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>

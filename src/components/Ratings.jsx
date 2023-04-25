@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, styled, Typography } from '@mui/material';
+import { Box, Button, IconButton, Stack, styled, Typography } from '@mui/material';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import React from 'react'
 
@@ -32,13 +32,15 @@ const Ratings = ({rate, totalVotes}) => {
       >
         <div> 
           {/* <CustomCheckbox /> */}
-          <IconButton sx={{p: 0, pb: 1}} >
+          {/* <IconButton sx={{p: 0, pb: 1}} > */}
+          <Stack sx={{p: 0, pb: 1}} direction="row">
             <CustomCheckbox />
-          </IconButton>
+          {/* </IconButton> */}
           <Typography sx={{ display: "inline-flex" }} variant="h6">
             {rate.toString().slice(0, 3)}
           </Typography>
           <span>/10</span>
+          </Stack>
         </div>
         <Typography variant="subtitle2">{formattedVotes}</Typography>
       </Button>

@@ -3,6 +3,7 @@ import React from 'react'
 import { useQuery } from 'react-query';
 import MovieCardSkeleton from '../components/MovieCardSkeleton';
 import MovieCard from '../components/MoviesCard';
+import PageComponent from '../components/PageComponent';
 import { getUpcomingMovies } from '../moviesAPI';
 
 const UpcomingMovies = () => {
@@ -17,14 +18,19 @@ const UpcomingMovies = () => {
       else if (isError) return <div>Error: {error.message}</div>;
 
   return (
-    <>
-    <Typography variant='h3' sx={{textAlign: 'center'}} pb={2}>Upcoming Movies</Typography>
-    <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}}>
-        { movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-            ))} 
-    </Container>
-    </>
+    // <>
+    // <Typography variant='h3' sx={{textAlign: 'center'}} pb={2}>Upcoming Movies</Typography>
+    // <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}}>
+    //     { movies.map((movie) => (
+    //         <MovieCard key={movie.id} movie={movie} />
+    //         ))} 
+    // </Container>
+    // </>
+    <PageComponent title='Upcoming Movies'>
+      { movies.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
+      ))} 
+    </PageComponent>
   )
 }
 

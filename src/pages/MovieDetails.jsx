@@ -1,37 +1,31 @@
-import { Box, Chip, CircularProgress, Container, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Chip, CircularProgress, Container, Divider, IconButton, Stack, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { useQueries } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { readDetails } from '../actions';
 import { API_KEY } from '../keys';
-import { getMovieProvider, getMoviesDetails } from '../moviesAPI';
+import { getMovieCredits, getMovieProvider, getMoviesDetails } from '../moviesAPI';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MovieProviders from '../components/MovieProviders';
 import Ratings from '../components/Ratings';
 import SimilarMovies from '../components/SimilarMovies';
+import CreditList from '../components/CreditList';
 
 const MovieDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    //const URL = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
-    //const state = useSelector(state => state);
-    //const dispatch = useDispatch();
-    //const {details} = state.movies;
-
-    // const { isLoading, data: details, isError, error } = useQuery({
-    //   queryKey: ["detailsMovies"],
-    //   queryFn: () => getMoviesDetails(id),
-    // });
 
     const results = useQueries([
       { queryKey: ["detailsMovies", id], queryFn: () => getMoviesDetails(id) },
       { queryKey: ["detailsMoviesProviders", id], queryFn: () => getMovieProvider(id) },
+      { queryKey: ["movieCredits", id], queryFn: () => getMovieCredits(id) },
     ])
 
-    const [detailsMovies, detailsMoviesProviders] = results; 
+    const [detailsMovies, detailsMoviesProviders, movieCredits] = results; 
     const {isLoading, data: details, isError, error} = detailsMovies; 
     const {data: providers} = detailsMoviesProviders; 
+    const {data: credits} = movieCredits; 
 
     const handleBack = () => {
       navigate(-1)
@@ -44,7 +38,7 @@ const MovieDetails = () => {
     const moviesListas = results.some(query => query.isLoading);
 
     const providersArrary = (!moviesListas || providers) ? providers?.results.US?.buy : [];
-
+    const creditsArrary = (!moviesListas || credits) ? credits.cast.slice(0,5) : [];
     // const getMoviesDetails = () => {
     //   const options = {
     //     headers: {
@@ -112,6 +106,15 @@ const MovieDetails = () => {
               <Chip key={genre.id} label={genre.name} />
             ))}
           </Stack>
+          <Box sx={{ display: 'flex', gap: 3, flexGrow: 1, flexWrap: 'wrap', py: 2}}>
+            {creditsArrary.map( (credit) => (
+              <>
+              <CreditList key={credit.id} name={credit.name} character={credit.character} />
+              <Divider orientation="vertical" flexItem />
+              </>
+            ))}
+            
+          </Box>
         </Box>
       </Box>
       <MovieProviders providersArrary={providersArrary} />

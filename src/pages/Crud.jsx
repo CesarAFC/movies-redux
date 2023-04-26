@@ -7,6 +7,7 @@ import { useQuery } from 'react-query';
 import { getInitialMovies } from '../moviesAPI';
 import MovieCardSkeleton from '../components/MovieCardSkeleton';
 import MovieCard from '../components/MoviesCard';
+import PageComponent from '../components/PageComponent';
 
 const URL = 'https://api.themoviedb.org/3/trending/movie/week';
 
@@ -45,14 +46,19 @@ const Crud = () => {
     // }, []);
   
   return (
-    <Container>
-      <Typography variant='h3' sx={{textAlign: 'center', fontWeight: 700}} pb={2}>Trending Movies</Typography>
-      <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}}>
-        {movies.map((movie) => (
+    // <Container>
+    //   <Typography variant='h3' sx={{textAlign: 'center', fontWeight: 700}} pb={2}>Trending Movies</Typography>
+    //   <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}} >
+    //     {movies.map((movie) => (
+    //       <MovieCard key={movie.id} movie={movie} />
+    //     ))}
+    //   </Container>
+    // </Container>
+    <PageComponent title='Trending Movies'>
+      {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </Container>
-    </Container>
+      ))}
+    </PageComponent>
   );
 }
 

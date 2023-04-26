@@ -3,6 +3,7 @@ import React from 'react'
 import { useQuery } from 'react-query';
 import MovieCardSkeleton from '../components/MovieCardSkeleton';
 import MovieCard from '../components/MoviesCard';
+import PageComponent from '../components/PageComponent';
 import { getTopRatedMovies } from '../moviesAPI';
 
 const TopRatedList = () => {
@@ -17,14 +18,19 @@ const TopRatedList = () => {
       else if (isError) return <div>Error: {error.message}</div>;
 
   return (
-    <>
-    <Typography variant='h3' sx={{textAlign: 'center'}} pb={2}>Top-Rated Movies</Typography>
-    <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}}>
-        { movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-            ))} 
-    </Container>
-    </>
+    // <>
+    // <Typography variant='h3' sx={{textAlign: 'center'}} pb={2}>Top-Rated Movies</Typography>
+    // <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}}>
+    //     { movies.map((movie) => (
+    //         <MovieCard key={movie.id} movie={movie} />
+    //         ))} 
+    // </Container>
+    // </>
+    <PageComponent title='Top-Rated Movies'>
+      { movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+      ))} 
+    </PageComponent>
   )
 }
 

@@ -11,8 +11,6 @@ import Crud from './pages/Crud';
 import ErrorBoundary from './components/ErrorBoundary';
 import UpcomingMovies from './pages/UpcomingMovies';
 import FavoritesMovies from './pages/FavoritesMovies';
-import CreditList from './components/CreditList';
-import Try from './components/Try';
 
 const theme = createTheme({
   typography: {
@@ -35,7 +33,7 @@ function App() {
             <SearchBar />
             <Container sx={{ pt: 10 }} disableGutters>
               <Routes>
-                <Route path="/" element={<Crud />} />
+                <Route path="/home" element={<Crud />} />
                 <Route path="/movies/:id" element={<MovieDetails />} />
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/top-rated" element={<TopRatedList />} />

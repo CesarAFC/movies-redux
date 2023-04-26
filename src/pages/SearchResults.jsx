@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Container, Typography } from '@mui/material';
+import { CircularProgress, Container, Typography } from '@mui/material';
 import React, { useEffect } from 'react'
 import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
@@ -11,26 +11,6 @@ export const SearchResults = ({}) => {
     const { movieQuery } = state.movies;
     
     const debouncedSearch = useDebounce(movieQuery, 500);
-    // const URL = `https://api.themoviedb.org/3/search/movie?language=en-US&query=${debouncedSearch}&page=1&include_adult=false`;
-
-    // function getResult() {
-    //     const options = {
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${API_KEY}`,
-    //         },
-    //     } 
-
-    //     fetch(URL, options)
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         console.log(data);
-    //     });
-    // }
-
-    // useEffect(() => {
-    //   getResult();
-    // }, [debouncedSearch]);
 
     //https://tanstack.com/query/v3/docs/react/guides/query-keys#if-your-query-function-depends-on-a-variable-include-it-in-your-query-key
     const { isLoading, data: movieResults, isError, error } = useQuery({
@@ -44,7 +24,7 @@ export const SearchResults = ({}) => {
 
   return (
     <Container sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center',flexWrap: 'wrap', gap: 2}}>
-      { movieResults.length === 0 ? <Typography>Type your query...</Typography> : movieResults.map((movie) => (
+      { movieResults.length === 0 ? <Typography variant='h6'>Type your query...</Typography> : movieResults.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))} 
 

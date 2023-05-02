@@ -108,12 +108,8 @@ const MovieDetails = () => {
           </Stack>
           <Box sx={{ display: 'flex', gap: 3, flexGrow: 1, flexWrap: 'wrap', py: 2}}>
             {creditsArrary.map( (credit) => (
-              <>
-              <CreditList key={credit.id} name={credit.name} character={credit.character} />
-              <Divider orientation="vertical" flexItem />
-              </>
+                <CreditList key={credit.id} name={credit.name} character={credit.character} />
             ))}
-            
           </Box>
         </Box>
       </Box>

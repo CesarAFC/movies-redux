@@ -1,7 +1,9 @@
 import './App.css';
 import {Provider} from 'react-redux';
 import { Routes, Route } from "react-router-dom";
-import store from './store';
+//import { store, persistor } from './store';
+import configureStore from './store/configureStore';
+
 import MovieDetails from './pages/MovieDetails';
 import SearchBar from './components/SearchBar';
 import { Container, createTheme, ThemeProvider } from '@mui/material';
@@ -11,6 +13,11 @@ import Crud from './pages/Crud';
 import ErrorBoundary from './components/ErrorBoundary';
 import UpcomingMovies from './pages/UpcomingMovies';
 import FavoritesMovies from './pages/FavoritesMovies';
+import { PersistGate } from 'redux-persist/integration/react'
+// import Try from './components/Try';
+
+const {store, persistor} = configureStore();
+//console.log(persistors);
 
 const theme = createTheme({
   typography: {
@@ -28,6 +35,7 @@ function App() {
   return (
     <>
       <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider theme={theme}>
           <ErrorBoundary>
             <SearchBar />
@@ -42,10 +50,10 @@ function App() {
                 {/* <Route path="/try" element={<Try />} /> */}
                 <Route path="*" element={<h1>404</h1>} />
               </Routes>
-              {/*  */}
             </Container>
           </ErrorBoundary>
         </ThemeProvider>
+        </PersistGate>
       </Provider>
     </>
   );

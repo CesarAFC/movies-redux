@@ -41,7 +41,7 @@ function App() {
             <SearchBar />
             <Container sx={{ pt: 10 }} disableGutters>
               <Routes>
-                <Route path="/home" element={<Crud />} />
+                <Route path="/movies-redux" element={<Crud />} />
                 <Route path="/movies/:id" element={<MovieDetails />} />
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/top-rated" element={<TopRatedList />} />

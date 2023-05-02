@@ -67,7 +67,7 @@ export default function SearchBar() {
   };
   const handleMoviesButton = () => {
     dispatch(clearQuery());
-    navigate(`/home`); 
+    navigate(`/movies-redux`); 
   }
 
   const handleSearch = () => {

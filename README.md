@@ -5,6 +5,7 @@ By using React, React Query, Redux, ErrorBoundary, and MaterialUI, we aim to cre
 
 ## Features
 * Browse trending and popular movies
+* Use Hash router to avoid errors
 * View movie details, ratings, reviews, and trailers (not yet)
 * Search for movies by title
 * (Save favorite movies to a watchlist for later viewing)?

@@ -14,6 +14,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import UpcomingMovies from './pages/UpcomingMovies';
 import FavoritesMovies from './pages/FavoritesMovies';
 import { PersistGate } from 'redux-persist/integration/react'
+import NotFound from './pages/NotFound';
 // import Try from './components/Try';
 
 const {store, persistor} = configureStore();
@@ -41,14 +42,14 @@ function App() {
             <SearchBar />
             <Container sx={{ pt: 10 }} disableGutters>
               <Routes>
-                <Route path="/movies-redux" element={<Crud />} />
+                <Route path="/" element={<Crud />} />
                 <Route path="/movies/:id" element={<MovieDetails />} />
                 <Route path="/search" element={<SearchResults />} />
                 <Route path="/top-rated" element={<TopRatedList />} />
                 <Route path="/upcoming" element={<UpcomingMovies />} />
                 <Route path="/my-favorites" element={<FavoritesMovies />} />
                 {/* <Route path="/try" element={<Try />} /> */}
-                <Route path="*" element={<h1>404</h1>} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </Container>
           </ErrorBoundary>

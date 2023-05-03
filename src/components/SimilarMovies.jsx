@@ -15,19 +15,26 @@ const SimilarMovies = ({movieId}) => {
     });
 
     const options = {
-      perPage: 2,
-      gap: "1rem",
+      perPage: 5,
+      gap: "5rem",
       height: '400px',
       padding: '5rem',
       rewindByDrag: true,
       focus: 'center',
       type: 'loop',
-      mediaQuery: 'min',
+      mediaQuery: 'max',
       breakpoints: {
         700: {
-          perPage: 5,
-          gap: "4rem",
+          perPage: 2,
+          gap: "5rem",
         },
+        900: {
+          perPage: 3,
+          gap: "6rem",
+        },
+        1100: {
+          perPage: 4,
+        }
       }
     }
 

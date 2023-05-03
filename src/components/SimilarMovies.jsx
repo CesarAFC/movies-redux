@@ -19,8 +19,9 @@ const SimilarMovies = ({movieId}) => {
       gap: "5rem",
       height: '450px',
       padding: '5rem',
-      rewindByDrag: true,
+      // rewindByDrag: true,
       focus: 'center',
+      start: 3,
       type: 'loop',
       mediaQuery: 'max',
       breakpoints: {

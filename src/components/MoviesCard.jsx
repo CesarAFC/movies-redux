@@ -52,7 +52,7 @@ export default function MovieCard({movie}) {
           title={movie.title}
         />
       ) : (
-        <NoImage />
+        <NoImage width={345} height={140} />
       )}
 
       <CardContent>

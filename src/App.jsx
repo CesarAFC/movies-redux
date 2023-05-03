@@ -18,7 +18,6 @@ import NotFound from './pages/NotFound';
 // import Try from './components/Try';
 
 const {store, persistor} = configureStore();
-//console.log(persistors);
 
 const theme = createTheme({
   typography: {
@@ -28,6 +27,15 @@ const theme = createTheme({
   },
   status: {
     star: '#f4c518',
+  },
+  breakpoints: {
+    values: {
+      xs: 390,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
   },
 });
 

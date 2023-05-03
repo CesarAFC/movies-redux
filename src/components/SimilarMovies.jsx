@@ -24,6 +24,10 @@ const SimilarMovies = ({movieId}) => {
       type: 'loop',
       mediaQuery: 'max',
       breakpoints: {
+        390: {
+          perPage: 1,
+          gap: "5rem",
+        },
         700: {
           perPage: 2,
           gap: "5rem",

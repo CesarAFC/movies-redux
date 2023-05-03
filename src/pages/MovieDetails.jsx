@@ -84,6 +84,7 @@ const MovieDetails = () => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: {xs: 'column', md: 'row'},
           justifyContent: "flex-start",
           alignItems: "center",
           gap: 3,

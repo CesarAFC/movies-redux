@@ -17,7 +17,7 @@ const SimilarMovies = ({movieId}) => {
     const options = {
       perPage: 5,
       gap: "5rem",
-      height: '400px',
+      height: '450px',
       padding: '5rem',
       rewindByDrag: true,
       focus: 'center',

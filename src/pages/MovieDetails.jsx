@@ -11,6 +11,7 @@ import MovieProviders from '../components/MovieProviders';
 import Ratings from '../components/Ratings';
 import SimilarMovies from '../components/SimilarMovies';
 import CreditList from '../components/CreditList';
+import NoImage from '../components/NoImage';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -90,15 +91,15 @@ const MovieDetails = () => {
           gap: 3,
         }}
       >
-        {isLoading ? (
-          ""
-        ) : (
+        {details.poster_path ? (
           <img
             src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
             width="200"
             height="300"
             alt={details.title}
           />
+        ) : (
+          <NoImage width={200} height={300} />
         )}
         <Box>
           <Typography variant="body1" sx={{pb: 2}}>{details.overview ? details.overview : 'No overview provided' }</Typography>

@@ -7,7 +7,7 @@ import StarRating from './StarRating';
 
 const SimilarCard = ({title, rate, poster, id}) => {
     const navigate = useNavigate();
-    
+
     const handleLearnMore = (e) => {
       navigate(`/movies/${id}`); 
     }
@@ -20,9 +20,7 @@ const SimilarCard = ({title, rate, poster, id}) => {
             width="200"
             height="300"
           />
-        ) : (
-          <NoImage width={200} height={300} />
-        )}
+        ) : (<NoImage width={200} height={300} /> )}
         <StarRating rate={rate} />
         <Typography sx={{ width: 200 }}>{title}</Typography>
         <Button size="small" onClick={handleLearnMore}>

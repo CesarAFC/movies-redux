@@ -12,6 +12,7 @@ import NoImage from './NoImage';
 import StarRating from './StarRating';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorites, ClearFromFavorites } from '../actions';
+import { Box } from '@mui/material';
 
 //https://developers.themoviedb.org/3/configuration/get-api-configuration
 
@@ -27,23 +28,28 @@ export default function MovieCard({movie}) {
     return movieInFavorites;
   }, [favorites]);
   
-  const handleLearnMore = () => {
+  const handleLearnMore = (e) => {
+    e.stopPropagation();
     navigate(`/movies/${movie.id}`); 
   }
-  const handleFavorite = () => {
+  const handleFavorite = (e) => {
+    e.stopPropagation();
     dispatch(addToFavorites(movie));
   }
-  const handleNoFavorite = () => {
+  const handleNoFavorite = (e) => {
+    e.stopPropagation();
     dispatch(ClearFromFavorites(movie.id));
   }
   return (
     <Card
       sx={{
+        cursor: 'pointer',
         maxWidth: 345,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
       }}
+      onClick={handleLearnMore}
     >
       {movie.backdrop_path ? (
         <CardMedia
@@ -60,9 +66,13 @@ export default function MovieCard({movie}) {
           {movie.title}
         </Typography>
         <StarRating rate={movie.vote_average} />
-        <Typography variant="body2" color="text.secondary">
-          {movie.overview ? movie.overview : "No description provided"}
-        </Typography>
+
+
+          <Typography variant="body2" color="text.secondary" sx={{height: 140, overflow: 'hidden'}} className='overview--card'>
+            {movie.overview ? movie.overview : "No description provided"}
+          </Typography>
+
+
       </CardContent>
       <CardActions>
         {!isInFavorites ? (

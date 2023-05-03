@@ -4,9 +4,9 @@ import { CustomCheckbox } from './Ratings'
 
 const StarRating = ({rate}) => {
   return (
-    <Stack direction="row" spacing={1}>
+    <Stack direction="row" spacing={0} sx={{alignItems: 'center'}} >
     <CustomCheckbox fontSize='sm' color='success'/>
-    <Typography sx={{ display: "inline-flex" }} variant="body2">
+    <Typography sx={{ display: "inline-flex"}} variant="body2">
       {rate.toString().slice(0, 3)}
     </Typography>
   </Stack>

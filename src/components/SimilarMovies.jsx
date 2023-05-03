@@ -4,7 +4,7 @@ import { useQuery } from 'react-query'
 import { getSimilarMovies } from '../moviesAPI'
 import MovieCardSkeleton from './MovieCardSkeleton'
 import SimilarCard from './SimilarCard'
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { Splide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 const SimilarMovies = ({movieId}) => {
@@ -25,7 +25,7 @@ const SimilarMovies = ({movieId}) => {
       type: 'loop',
       mediaQuery: 'max',
       breakpoints: {
-        390: {
+        500: {
           perPage: 1,
           gap: "5rem",
         },

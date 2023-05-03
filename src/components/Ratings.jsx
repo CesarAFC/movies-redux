@@ -33,13 +33,13 @@ const Ratings = ({rate, totalVotes}) => {
         <div> 
           {/* <CustomCheckbox /> */}
           {/* <IconButton sx={{p: 0, pb: 1}} > */}
-          <Stack sx={{p: 0, pb: 1}} direction="row">
+          <Stack sx={{alignItems: 'center', p: 0, pb: 0}} direction="row">
             <CustomCheckbox />
           {/* </IconButton> */}
           <Typography sx={{ display: "inline-flex" }} variant="h6">
             {rate.toString().slice(0, 3)}
           </Typography>
-          <span>/10</span>
+          <Typography variant="subtitle1">/10</Typography>
           </Stack>
         </div>
         <Typography variant="subtitle2">{formattedVotes}</Typography>

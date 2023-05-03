@@ -13,17 +13,21 @@ const SimilarCard = ({title, rate, poster, id}) => {
     }
   return (
     <SplideSlide>
-      <Box>
+      <Box 
+      sx={{ display: "flex", flexDirection: "column", alignItems: 'center', flexWrap: 'wrap' }}
+      >
         {poster ? (
           <img
             src={`https://image.tmdb.org/t/p/w500/${poster}`}
             width="200"
             height="300"
           />
-        ) : (<NoImage width={200} height={300} /> )}
+        ) : (
+          <NoImage width={200} height={300} />
+        )}
         <StarRating rate={rate} />
-        <Typography sx={{ width: 200 }}>{title}</Typography>
-        <Button size="small" onClick={handleLearnMore}>
+        <Typography sx={{ width: 200, textAlign: 'center' }}>{title}</Typography>
+        <Button size="small" onClick={handleLearnMore} sx={{}} >
           Learn More
         </Button>
       </Box>

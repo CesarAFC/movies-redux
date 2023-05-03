@@ -1,8 +1,7 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
-import StarRateIcon from '@mui/icons-material/StarRate';
+import { Box, Button, Typography } from '@mui/material';
+import { SplideSlide } from '@splidejs/react-splide';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CustomCheckbox } from './Ratings';
 import StarRating from './StarRating';
 
 const SimilarCard = ({title, rate, poster, id}) => {
@@ -13,6 +12,7 @@ const SimilarCard = ({title, rate, poster, id}) => {
       navigate(`/movies/${id}`); 
     }
   return (
+    <SplideSlide>
     <Box>
       <img
         src={`https://image.tmdb.org/t/p/w500/${poster}`}
@@ -23,6 +23,7 @@ const SimilarCard = ({title, rate, poster, id}) => {
       <Typography sx={{width: 200}}>{title}</Typography>
       <Button size="small" onClick={handleLearnMore}>Learn More</Button>
     </Box>
+    </SplideSlide>
   );
 }
 

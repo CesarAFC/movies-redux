@@ -14,6 +14,23 @@ const SimilarMovies = ({movieId}) => {
       select: (movies) => movies.results.slice(0, 5),
     });
 
+    const options = {
+      perPage: 2,
+      gap: "1rem",
+      height: '400px',
+      padding: '5rem',
+      rewindByDrag: true,
+      focus: 'center',
+      type: 'loop',
+      mediaQuery: 'min',
+      breakpoints: {
+        700: {
+          perPage: 5,
+          gap: "4rem",
+        },
+      }
+    }
+
     if( isLoading) return <MovieCardSkeleton/>
     else if( isError ) return <div>Error: {error.message}</div>
 
@@ -22,29 +39,43 @@ const SimilarMovies = ({movieId}) => {
       <Typography variant="h4" sx={{ pt: 4, pb: 2 }}>
         More like this
       </Typography>
-      {/* overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory; */}
-      <Box
+
+      <Box sx={{ width: '100%' }}>
+        <Splide
+          aria-label="My Favorite Images"
+          options={options}
+        >
+          {movies.map((movie) => (
+            <SimilarCard
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              rate={movie.vote_average}
+              poster={movie.poster_path}
+            />
+          ))}
+        </Splide>
+      </Box>
+
+      {/* <Box
         sx={{
           width: "100%",
-          overflowX: 'auto',
+          overflowX: "auto",
           display: "flex",
-          // gap: 2,
+          gap: 2,
           justifyContent: "center",
         }}
       >
-        <Splide options={{ perPage: 5, gap: '1rem',}}>
         {movies.map((movie) => (
-            <SimilarCard
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                rate={movie.vote_average}
-                poster={movie.poster_path}
-              />
+          <SimilarCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            rate={movie.vote_average}
+            poster={movie.poster_path}
+          />
         ))}
-        </Splide>
-      </Box>
+      </Box> */}
     </Container>
   );
 }

@@ -12,7 +12,6 @@ import NoImage from './NoImage';
 import StarRating from './StarRating';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorites, ClearFromFavorites } from '../actions';
-import { Box } from '@mui/material';
 
 //https://developers.themoviedb.org/3/configuration/get-api-configuration
 

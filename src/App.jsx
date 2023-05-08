@@ -41,9 +41,6 @@ const theme = createTheme({
 
 function App() {
 
-  const {pathname} = useLocation();
-  console.log(pathname);
-
   return (
     <>
       <Provider store={store}>

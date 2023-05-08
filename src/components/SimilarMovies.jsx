@@ -6,6 +6,7 @@ import MovieCardSkeleton from './MovieCardSkeleton'
 import SimilarCard from './SimilarCard'
 import { Splide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import SimilarMovieSkeleton from './SimilarMovieSkeleton'
 
 const SimilarMovies = ({movieId}) => {
     const {isLoading, data: movies, isError, error} = useQuery({
@@ -43,7 +44,7 @@ const SimilarMovies = ({movieId}) => {
       }
     }
 
-    if( isLoading) return <MovieCardSkeleton/>
+    if( isLoading) return <SimilarMovieSkeleton/>
     else if( isError ) return <div>Error: {error.message}</div>
 
   return (
@@ -52,9 +53,9 @@ const SimilarMovies = ({movieId}) => {
         More like this
       </Typography>
 
-      <Box sx={{ width: '100%' }}>
+{ movies.length && <Box sx={{ width: '100%' }}>
         <Splide
-          aria-label="My Favorite Images"
+          aria-label="More like this"
           options={options}
         >
           {movies.map((movie) => (
@@ -67,7 +68,7 @@ const SimilarMovies = ({movieId}) => {
             />
           ))}
         </Splide>
-      </Box>
+      </Box>}
 
       {/* <Box
         sx={{

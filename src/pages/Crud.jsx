@@ -2,7 +2,7 @@
 // import { useEffect } from 'react';
 // import { readAllData } from '../actions';
 // import { API_KEY } from '../keys';
-import { Container, Typography } from '@mui/material';
+// import { Container, Typography } from '@mui/material';
 import { useQuery } from 'react-query';
 import { getInitialMovies } from '../moviesAPI';
 import MovieCardSkeleton from '../components/MovieCardSkeleton';

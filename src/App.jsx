@@ -1,6 +1,6 @@
 import './App.css';
 import {Provider} from 'react-redux';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 //import { store, persistor } from './store';
 import configureStore from './store/configureStore';
 
@@ -40,6 +40,9 @@ const theme = createTheme({
 });
 
 function App() {
+
+  const {pathname} = useLocation();
+  console.log(pathname);
 
   return (
     <>

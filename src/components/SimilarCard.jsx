@@ -9,10 +9,11 @@ const SimilarCard = ({title, rate, poster, id}) => {
     const navigate = useNavigate();
 
     const handleLearnMore = (e) => {
+      e.stopPropagation();
       navigate(`/movies/${id}`); 
     }
   return (
-    <SplideSlide>
+    <SplideSlide style={{cursor: 'pointer'}} onClick={handleLearnMore}>
       <Box 
       sx={{ display: "flex", flexDirection: "column", alignItems: 'center', flexWrap: 'wrap' }}
       >

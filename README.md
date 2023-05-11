@@ -11,7 +11,7 @@ By using React, React Query, Redux, ErrorBoundary, and MaterialUI, we aim to cre
 * (Save favorite movies to a watchlist for later viewing)?
 
 ## Usage
-To use the Trending Movies App, simply navigate to the application's URL in your web browser. From there, you can browse and search for movies, view movie details and trailers, and create an account to save movies to your watchlist.
+To use the Trending Movies App, simply navigate to the application's URL ['https://cesarafc.github.io/movies-redux/] in your web browser. From there, you can browse and search for movies, view movie details and trailers, and create an account to save movies to your watchlist.
 
 
 ## TODO

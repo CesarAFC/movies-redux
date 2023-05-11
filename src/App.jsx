@@ -15,7 +15,7 @@ import UpcomingMovies from './pages/UpcomingMovies';
 import FavoritesMovies from './pages/FavoritesMovies';
 import { PersistGate } from 'redux-persist/integration/react'
 import NotFound from './pages/NotFound';
-// import Try from './components/Try';
+import Try from './components/Try';
 
 const {store, persistor} = configureStore();
 
@@ -24,6 +24,12 @@ const theme = createTheme({
     fontFamily: [
       '"Montserrat"', 'Open Sans'
     ].join(','),
+    h2: {
+      fontSize: "3.75rem",
+      "@media (max-width:600px)": {
+        fontSize: "2.5rem",
+      },
+    },
   },
   status: {
     star: '#f4c518',
@@ -38,7 +44,7 @@ const theme = createTheme({
     },
   },
 });
-
+console.log(theme)
 function App() {
 
   return (
@@ -56,7 +62,7 @@ function App() {
                 <Route path="/top-rated" element={<TopRatedList />} />
                 <Route path="/upcoming" element={<UpcomingMovies />} />
                 <Route path="/my-favorites" element={<FavoritesMovies />} />
-                {/* <Route path="/try" element={<Try />} /> */}
+                <Route path="/try" element={<Try />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Container>

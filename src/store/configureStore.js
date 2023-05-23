@@ -10,7 +10,7 @@ const persistConfig = {
   key: 'root',
   storage,
   whitelist: ['movies'],
-  stateReconciler: hardSet,
+  // stateReconciler: hardSet,
 }
  
 const persistedReducer = persistReducer(persistConfig, reducer)

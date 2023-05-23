@@ -44,7 +44,6 @@ const theme = createTheme({
     },
   },
 });
-// console.log(theme)
 function App() {
 
   return (
